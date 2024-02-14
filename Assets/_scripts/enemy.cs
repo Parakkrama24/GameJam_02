@@ -10,7 +10,7 @@ public class enemy : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab; // Prefab of the bullet
     [SerializeField] private float shootingInterval = 2f; // Interval between shots
     [SerializeField] private float bulletSpeed = 10f; // Speed of the bullet
-
+   
     NavMeshAgent agent;
     private bool isFollow;
     private bool isShooting;
@@ -64,7 +64,9 @@ public class enemy : MonoBehaviour
                 bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
                 // Destroy bullet after 2 seconds (Adjust as needed)
+              
                 Destroy(bullet, 2f);
+
             }
 
             // Wait for shooting interval
@@ -72,5 +74,6 @@ public class enemy : MonoBehaviour
         }
     }
 
+ 
    
 }
