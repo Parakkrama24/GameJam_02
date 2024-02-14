@@ -21,7 +21,7 @@ public class enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        // Start shooting coroutine
+
         StartCoroutine(ShootRoutine());
 
     }

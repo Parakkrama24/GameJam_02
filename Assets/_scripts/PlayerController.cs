@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer playerSpriteRender;
     private Animator animator;
     private bool isDash= false;
-   [SerializeField] private float health = 100;
+    public  float  health = 100;
     [SerializeField] private GameObject PlayerBulate;
+    [SerializeField] float bulletSpeed = 100f;
 
 
     void Start()
@@ -92,7 +93,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Iswalk", false);
         }
 
-        Player_shooting();
+        if(Input.GetMouseButtonDown(0))
+        {
+            Player_shooting();
+        }
     }
    
   
@@ -113,17 +117,28 @@ public class PlayerController : MonoBehaviour
 
     private void Player_shooting()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Shhot");
-            Vector3 mousePosition = Input.mousePosition;
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        Debug.Log("Shoot");
 
-            worldPosition.z = 0f;
-           // Debug.Log("Mouse Click Position: " + worldPosition);
+        // Get the mouse position in screen coordinates
+        Vector3 mousePosition = Input.mousePosition;
 
+        // Convert the mouse position to world coordinates
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        }
+        // Ensure the Z coordinate is 0 since this is a 2D game
+        worldPosition.z = 0f;
+
+        // Instantiate the bullet at the player's position
+        GameObject bullet = Instantiate(PlayerBulate, transform.position, Quaternion.identity);
+
+        // Calculate the direction towards the mouse click position
+        Vector3 direction = (worldPosition - transform.position).normalized;
+
+        // Set the bullet's velocity to move towards the mouse click position
+ // Adjust the speed as needed
+        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+
+        Destroy(bullet, 2f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
