@@ -13,7 +13,7 @@ public class enemy : MonoBehaviour
    
     NavMeshAgent agent;
     private bool isFollow;
-    private bool isShooting;
+   // private bool isShooting;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class enemy : MonoBehaviour
         {
             Vector2 Destination = new Vector2(target.position.x - 0.5f, target.position.y - 0.5f);
             agent.SetDestination(Destination);
-            isShooting = true;
+           // isShooting = true;
             
         }
 
@@ -74,6 +74,14 @@ public class enemy : MonoBehaviour
         }
     }
 
- 
-   
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayerBulate"))
+        {
+          //  Destroy(bulletPrefab);
+            Destroy(this.gameObject);
+        }
+    }
+
+
 }

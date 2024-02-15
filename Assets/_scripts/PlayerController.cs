@@ -15,8 +15,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private bool isDash= false;
     public  float  health = 100;
+    public int points = 0;
     [SerializeField] private GameObject PlayerBulate;
     [SerializeField] float bulletSpeed = 100f;
+
 
 
     void Start()
@@ -119,23 +121,20 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Shoot");
 
-        // Get the mouse position in screen coordinates
+      
         Vector3 mousePosition = Input.mousePosition;
 
-        // Convert the mouse position to world coordinates
+   
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        // Ensure the Z coordinate is 0 since this is a 2D game
         worldPosition.z = 0f;
 
-        // Instantiate the bullet at the player's position
+       
         GameObject bullet = Instantiate(PlayerBulate, transform.position, Quaternion.identity);
 
-        // Calculate the direction towards the mouse click position
         Vector3 direction = (worldPosition - transform.position).normalized;
 
-        // Set the bullet's velocity to move towards the mouse click position
- // Adjust the speed as needed
+
         bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
 
         Destroy(bullet, 2f);
@@ -151,6 +150,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bulate"))
         {
             health -= 10;
+        }
+        else if (collision.gameObject.CompareTag("Points"))
+        {
+            health += 20;
+            points++;
+            Destroy(collision.gameObject);
         }
     }
 

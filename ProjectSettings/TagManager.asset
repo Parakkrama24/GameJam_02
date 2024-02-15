@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Bulate
+  - PlayerBulate
+  - Points
+  - enemy
   layers:
   - Default
   - TransparentFX
