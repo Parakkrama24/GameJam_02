@@ -1,24 +1,39 @@
 # Project Name
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Python Version](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
-[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ## Description
 
-A brief description of your project. What does it do? Why did you build it? What problem does it solve?
+Briefly describe your Unity 2D mobile game project. What is its concept? What makes it unique or interesting? Feel free to include screenshots or GIFs of gameplay.
 
 ## Table of Contents
 
+- [Features](#features)
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
+## Features
+
+List the key features of your Unity 2D mobile game.
+
+- Feature 1
+- Feature 2
+- ...
+
+## Demo
+
+Include a link to a demo video or a GIF showcasing your game in action.
+
+[Demo Video](link_to_demo_video)
+
 ## Installation
 
-Provide instructions on how to install and use your project. Include any prerequisites or dependencies.
+Provide instructions on how to install and run your Unity 2D mobile game. Include any dependencies or prerequisites.
 
 ```bash
-pip install your-package-name
+# Clone the repository
+git clone https://github.com/your-github-username/your-repository.git
